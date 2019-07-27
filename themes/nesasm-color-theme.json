@@ -1,0 +1,34 @@
+{
+	"name": "Nesasm",
+	"include": "./dark_plus.json",
+    "tokenColors":[
+        {
+            "name": "labels",
+            "scope": "variable.parameter.label",
+            "settings": {
+                "foreground": "#dd6060"
+            }
+        },
+        {
+            "name": "locallabels",
+            "scope": "variable.parameter.locallabel",
+            "settings": {
+                "foreground": "#e4acac"
+            }
+        },
+        {
+            "name": "immediate",
+            "scope": "constant.numeric.immediate",
+            "settings": {
+                "foreground": "#16be24"
+            }
+        },
+        {
+            "name": "register",
+            "scope": ["constant.language.registers","entity.other.attribute-name.local.macro.parameter"],
+            "settings": {
+                "foreground": "#cb94ff"
+            }
+        }
+    ]
+}

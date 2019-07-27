@@ -1,0 +1,31 @@
+{
+    "name": "vscode-nesasm",
+    "displayName": "nesasm",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Themes"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "nesasm",
+            "aliases": ["", "nesasm"],
+            "extensions": [".asm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "nesasm",
+            "scopeName": "source.nesasm",
+            "path": "./syntaxes/nesasm.tmLanguage.json"
+        }],
+        "themes":[{
+            "label": "Nesasm theme",
+            "uiTheme": "vs-dark",
+            "path": "./themes/nesasm-color-theme.json"
+        }]
+    }
+}

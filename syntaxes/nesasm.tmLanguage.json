@@ -1,0 +1,125 @@
+{
+	"scopeName": "source.nesasm",
+	"patterns": [
+		{"include": "#comments"},
+		{"include": "#quotes"},
+		{"include": "#opecode"},
+		{"include": "#constants"},
+		{"include": "#directives"},
+		{"include": "#label"},
+		{"include": "#functions"}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"match": ";.*",
+					"name": "comment.line.semicolon"
+				}
+			]
+		},
+		"quotes": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"end": "\"",
+					"name": "string.quoted.double"
+				}
+			]
+		},
+		"opecode": {
+			"patterns": [
+				{
+					"match": "(?<=(a|b))kenta",
+					"name": "keyword.other.test"
+				},
+				{
+					"match": "(?i)^\\s+(adc|and|asl|bcc|bcs|beq|bit|bmi|bne|bpl|brk|bvc|bvs|clc|cld|cli|clv|cmp|cpx|cpy|dec|dex|dey|eor|inc|inx|iny|jmp|jsr|lda|ldx|ldy|lsr|nop|ora|pha|php|pla|plp|rol|ror|rti|rts|sbc|sec|sed|sei|sta|stx|sty|tax|tay|tsx|txa|txs|tya)\\s+",
+					"name": "keyword.other.opecode"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"match": "(?<=\\s)#(?=(\\$\\h|\\w|\\d|\\%[0-1]+|\\\\))",
+					"name": "constant.numeric.immediate"
+				},
+				{
+					"match": "(?<=(\\s|#|,))[0-9]+(?=(\\s|,))",
+					"name": "constant.numeric.decimal"
+				},
+				{
+					"match": "(?i)(?<=(\\s|#|,))#?\\$\\h+(?=(\\s|,))",
+					"name": "constant.numeric.hexadecimal"
+				},
+				{
+					"match": "(?i)(?<=(\\s|#|,))#?\\%[0-1]+(?=(\\s|,))",
+					"name": "constant.numeric.binary"
+				},
+				{
+					"match": "(?i)(?<=,)\\s*[xy]\\s",
+					"name": "constant.language.registers.indexes"
+				},
+				{
+					"match": "(?i)(?<=(asl|lsr|rol|ror)\\s)a\\s",
+					"name": "constant.language.registers.accumulator"
+				}
+			]
+		},
+		"directives": {
+			"patterns": [
+				{
+					"match": "(?i)\\s+.(db|dw|rsset|rs|equ|bank|org|macro|endm|incbin|include|incchr|inesprg|ineschr|inesmap|inesmir)\\s+",
+					"name": "entity.other.attribute-name.local.all"
+				},
+				{
+					"match": "=",
+					"name": "entity.other.attribute-name.local.equal"
+				},
+				{
+					"match": "<",
+					"name": "entity.other.attribute-name.local.equal"
+				},
+				{
+					"match": "(\\+|\\-|\\*|\\/)",
+					"name": "entity.other.attribute-name.local.eqoperation"
+				},
+				{
+					"begin": ".macro",
+					"end": ".endm",
+					"match": "\\\\([0-9]+|@)",
+					"name": "entity.other.attribute-name.local.macro.parameter"
+				}
+			]
+		},
+		"label": {
+			"patterns": [
+				{
+					"match": "^\\w+(?=:)",
+					"name": "variable.parameter.label"
+				},
+				{
+					"match": "(?i)(?<=(jmp|jsr|bcc|bcs|beq|bmi|bne|bpl|bvc|bvs)\\s)\\w+",
+					"name": "variable.parameter.label"
+				},
+				{
+					"match": "^.\\w+(?=:)",
+					"name": "variable.parameter.locallabel"
+				},
+				{
+					"match": "(?i)(?<=(jmp|jsr|bcc|bcs|beq|bmi|bne|bpl|bvc|bvs)\\s).\\w+",
+					"name": "variable.parameter.locallabel"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"match": "(?i)(?<=(\\s|#|,))(low|high)(?=\\(\\w+\\))",
+					"name": "entity.other.attribute-name.local.function"
+				}
+			]
+		}
+	}
+}
