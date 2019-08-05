@@ -1,8 +1,9 @@
 {
     "name": "vscode-nesasm",
     "displayName": "nesasm",
-    "description": "",
+    "description": "Extension fot NESASM",
     "version": "0.0.1",
+    "publisher": "ishino-kenta",
     "engines": {
         "vscode": "^1.36.0"
     },
