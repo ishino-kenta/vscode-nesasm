@@ -29,6 +29,13 @@
             "settings": {
                 "foreground": "#cb94ff"
             }
+        },
+        {
+            "name": "opecode.subroutine",
+            "scope": "keyword.other.opecode.subroutine",
+            "settings": {
+                "foreground": "#4e2385"
+            }
         }
     ]
 }

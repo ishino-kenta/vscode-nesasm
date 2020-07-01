@@ -34,7 +34,11 @@
 					"name": "keyword.other.test"
 				},
 				{
-					"match": "(?i)^\\s+(adc|and|asl|bcc|bcs|beq|bit|bmi|bne|bpl|brk|bvc|bvs|clc|cld|cli|clv|cmp|cpx|cpy|dec|dex|dey|eor|inc|inx|iny|jmp|jsr|lda|ldx|ldy|lsr|nop|ora|pha|php|pla|plp|rol|ror|rti|rts|sbc|sec|sed|sei|sta|stx|sty|tax|tay|tsx|txa|txs|tya)\\s+",
+					"match": "(?i)^\\s+(jmp|jsr|rts|rti|bcc|bcs|beq|bne|bmi|bpl|bvc|bvs)\\s+",
+					"name": "keyword.other.opecode.subroutine"
+				},
+				{
+					"match": "(?i)^\\s+(adc|and|asl|bit|brk|clc|cld|cli|clv|cmp|cpx|cpy|dec|dex|dey|eor|inc|inx|iny|lda|ldx|ldy|lsr|nop|ora|pha|php|pla|plp|rol|ror|sbc|sec|sed|sei|sta|stx|sty|tax|tay|tsx|txa|txs|tya)\\s+",
 					"name": "keyword.other.opecode"
 				}
 			]
@@ -96,7 +100,7 @@
 		"label": {
 			"patterns": [
 				{
-					"match": "^\\w+(?=:)",
+					"match": "^[A-Z]\\w+(?=:)",
 					"name": "variable.parameter.label"
 				},
 				{
@@ -104,11 +108,27 @@
 					"name": "variable.parameter.label"
 				},
 				{
-					"match": "^.\\w+(?=:)",
+					"match": "(?i)(?<=(adc|and|ora)\\s)\\.\\w+?(?=,)",
 					"name": "variable.parameter.locallabel"
 				},
 				{
-					"match": "(?i)(?<=(jmp|jsr|bcc|bcs|beq|bmi|bne|bpl|bvc|bvs)\\s).\\w+",
+					"match": "(?i)(?<=(adc|and|ora)\\s)\\.\\w+?(?=\\+[0-9]+,)",
+					"name": "variable.parameter.locallabel"
+				},
+				{
+					"match": "(?i)(?<=(adc|and)\\s)\\w+?(?=,)",
+					"name": "variable.parameter.label"
+				},
+				{
+					"match": "(?i)(?<=(adc|and)\\s)\\w+?(?=\\+[0-9]+,)",
+					"name": "variable.parameter.label"
+				},
+				{
+					"match": "^\\.\\w+(?=:)",
+					"name": "variable.parameter.locallabel"
+				},
+				{
+					"match": "(?i)(?<=(jmp|jsr|bcc|bcs|beq|bmi|bne|bpl|bvc|bvs)\\s)\\.\\w+",
 					"name": "variable.parameter.locallabel"
 				}
 			]
